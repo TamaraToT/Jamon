@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Negocio</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f4f4f4; }
+        header { background: #333; color: white; padding: 20px; text-align: center; }
+        .container { background: white; padding: 20px; margin-top: 20px; border-radius: 8px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+        .card { border: 1px solid #ddd; padding: 15px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a Mi Negocio</h1>
+        <a href="{% url 'portada' %}" style="color: white;">Inicio</a>
+    </header>
+
+    <div class="container">
+        {% block contenido %}
+        <!-- Aquí se inyectará el contenido de las otras páginas -->
+        {% endblock %}
+    </div>
+</body>
+</html>

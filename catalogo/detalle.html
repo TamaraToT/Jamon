@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<h2>{{ producto.nombre }}</h2>
+<p><strong>Categoría:</strong> {{ producto.categoria.nombre }}</p>
+<p><strong>Precio:</strong> ${{ producto.precio }}</p>
+<p><strong>Stock disponible:</strong> {{ producto.stock }} unidades</p>
+<p><strong>Descripción:</strong> {{ producto.descripcion }}</p>
+
+<h3>Galería de Imágenes</h3>
+<div class="grid">
+    {% for extra in producto.imagenes_extras.all %}
+        <div class="card">
+            <img src="{{ extra.imagen.url }}" alt="Foto extra" style="max-width: 100%;">
+        </div>
+    {% empty %}
+        <p>Este producto no tiene imágenes adicionales.</p>
+    {% endfor %}
+</div>
+
+<br>
+<a href="{% url 'portada' %}">← Volver a la portada</a>
+{% endblock %}

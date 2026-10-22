@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<h2>Nuestros Productos</h2>
+
+<div class="grid">
+    {% for producto in productos %}
+        <div class="card">
+            <h3>{{ producto.nombre }}</h3>
+            <p>Precio: ${{ producto.precio }}</p>
+            <p>Categoría: {{ producto.categoria.nombre }}</p>
+            <a href="{% url 'detalle_producto' producto.id %}">Ver Detalles</a>
+        </div>
+    {% empty %}
+        <!-- Requisito: Si no hay registros en el ORM, muestra este mensaje -->
+        <p>No hay productos disponibles en este momento.</p>
+    {% endfor %}
+</div>
+{% endblock %}
