@@ -58,3 +58,4 @@ class ImagenAdicional(models.Model):
 
     def __str__(self):
         return f"Foto extra de {self.producto.nombre} (Posición {self.orden})"
+    
